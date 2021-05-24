@@ -1,7 +1,7 @@
-<?php
-  session_start();
-  if($_SESSION['autenticado'] == 'NO' || !isset($_SESSION['autenticado'])){
-    header('Location: index.php?login=erro2');
+<?
+  require('validador_de_acesso.php');
+  if(isset($_GET['chamado'])){
+
   }
 ?>
 
@@ -28,6 +28,11 @@
         <img src="images/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
         App Help Desk
       </a>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a href="logoff.php" class="nav-link">Sair</a>
+        </li>
+      </ul>
     </nav>
 
     <div class="container">    
@@ -42,15 +47,15 @@
               <div class="row">
                 <div class="col">
                   
-                  <form>
+                  <form method="post" action="registra_chamado.php">
                     <div class="form-group">
                       <label>Título</label>
-                      <input type="text" class="form-control" placeholder="Título">
+                      <input name='titulo' type="text" class="form-control" placeholder="Título">
                     </div>
                     
                     <div class="form-group">
                       <label>Categoria</label>
-                      <select class="form-control">
+                      <select name='categoria' class="form-control">
                         <option>Criação Usuário</option>
                         <option>Impressora</option>
                         <option>Hardware</option>
@@ -61,12 +66,20 @@
                     
                     <div class="form-group">
                       <label>Descrição</label>
-                      <textarea class="form-control" rows="3"></textarea>
+                      <textarea name="descricao" class="form-control" rows="3"></textarea>
                     </div>
+
+                    <?php 
+                      if(isset($_GET['chamado']) && $_GET['chamado'] == 'sucess'){
+                    ?>
+                      <div class="text-success">
+                        Chamado feito com sucesso
+                      </div>
+                    <?php  } ?>
 
                     <div class="row mt-5">
                       <div class="col-6">
-                        <button class="btn btn-lg btn-warning btn-block" type="submit">Voltar</button>
+                        <a class="btn btn-lg btn-warning btn-block" href="home.php">Voltar</a>
                       </div>
 
                       <div class="col-6">

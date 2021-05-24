@@ -26,6 +26,8 @@
     if($usuario_autenticado){
         header('Location: home.php');
         $_SESSION['autenticado'] = 'YES';
+        $_SESSION['email'] = $_POST['email'];
+        $_SESSION['senha'] = $_POST['senha'];
     }else{
         header('Location: index.php?login=erro');//passando pela variavel login o valor de erro
         $_SESSION['autenticado'] = 'NO';

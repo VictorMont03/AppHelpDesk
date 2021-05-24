@@ -2,7 +2,6 @@
   if(isset($_GET['login'])){
 
   }
-  
 ?>
 
 <html>
@@ -57,7 +56,7 @@
                 </div>
 
                 <?php } 
-                  if($_GET['login'] == 'erro2'){
+                  if(isset($_GET['login']) && $_GET['login'] == 'erro2'){
                 ?>
 
                 <div class="text-danger">
