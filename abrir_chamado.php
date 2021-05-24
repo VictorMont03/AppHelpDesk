@@ -50,7 +50,7 @@
                   <form method="post" action="registra_chamado.php">
                     <div class="form-group">
                       <label>Título</label>
-                      <input name='titulo' type="text" class="form-control" placeholder="Título">
+                      <input name='titulo' type="text" class="form-control" placeholder="Título" require>
                     </div>
                     
                     <div class="form-group">
@@ -66,7 +66,7 @@
                     
                     <div class="form-group">
                       <label>Descrição</label>
-                      <textarea name="descricao" class="form-control" rows="3"></textarea>
+                      <textarea name="descricao" class="form-control" rows="3" require></textarea>
                     </div>
 
                     <?php 

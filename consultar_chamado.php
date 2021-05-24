@@ -2,6 +2,22 @@
   require('validador_de_acesso.php');
 ?>
 
+<?php
+  $arq = fopen('arquivo.hd', 'r');
+  $infos = [];
+  $i = 0;
+  while(!feof($arq)){
+    //linhas
+    $infos[$i] = fgets($arq);//pegar o que tem na linha
+    $i++;
+  }
+  /*echo '<pre>';
+  print_r($infos);
+  echo '</pre>';*/
+
+  fclose($arq);
+?>
+
 <html>
   <head>
     <meta charset="utf-8" />
@@ -42,25 +58,33 @@
             </div>
             
             <div class="card-body">
-              
-              <div class="card mb-3 bg-light">
-                <div class="card-body">
-                  <h5 class="card-title">Título do chamado...</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">Categoria</h6>
-                  <p class="card-text">Descrição do chamado...</p>
+              <? foreach($infos as $info){
+                  $info_explodido = explode("#", $info);
+                  if(count($info_explodido) < 3){ //falta de informações -> ignora este indice
+                    continue;
+                  }
+              ?>
+                <div class="card mb-3 bg-light">
+                  <div class="card-body">
+                    <h5 class="card-title">
+                      <? 
+                        echo $info_explodido[0];
+                      ?>
+                    </h5>
+                    <h6 class="card-subtitle mb-2 text-muted">
+                        <?          
+                          echo $info_explodido[1];
+                        ?>
+                    </h6>
+                    <p class="card-text">
+                      <? 
+                        echo $info_explodido[2];   
+                      ?>
+                    </p>
 
+                  </div>
                 </div>
-              </div>
-
-              <div class="card mb-3 bg-light">
-                <div class="card-body">
-                  <h5 class="card-title">Título do chamado...</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">Categoria</h6>
-                  <p class="card-text">Descrição do chamado...</p>
-
-                </div>
-              </div>
-
+              <? } ?>
               <div class="row mt-5">
                 <div class="col-6">
                   <a class="btn btn-lg btn-warning btn-block" href="home.php">Voltar</a>
