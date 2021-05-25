@@ -1,14 +1,11 @@
 <?php
-    echo '<pre>';
-    print_r($_POST);
-    echo '</pre>';
-    echo '<br/>';
+    session_start();
 
-    $_POST['titulo'] = str_replace('#', '-', $_POST['titulo']);
-    $_POST['categoria'] = str_replace('#', '-', $_POST['categoria']);
+    $_POST['titulo'] = str_replace('#', '-', $_POST['titulo']);//caso haja algum uso de # sera subtituido por - 
+    $_POST['categoria'] = str_replace('#', '-', $_POST['categoria']);//motivo: evitar bugs
     $_POST['descricao'] = str_replace('#', '-', $_POST['descricao']);
 
-    $text = implode('#', $_POST) . PHP_EOL;
+    $text = $_SESSION['id'] . '#' . implode('#', $_POST) . PHP_EOL;
 
     $arq = fopen('arquivo.hd', 'a');
     

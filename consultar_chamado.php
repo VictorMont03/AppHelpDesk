@@ -63,28 +63,30 @@
                   if(count($info_explodido) < 3){ //falta de informações -> ignora este indice
                     continue;
                   }
+                  if($_SESSION['id'] == $info_explodido[0] || $_SESSION['adm_profile'] == 1){
+
               ?>
                 <div class="card mb-3 bg-light">
                   <div class="card-body">
                     <h5 class="card-title">
                       <? 
-                        echo $info_explodido[0];
+                        echo $info_explodido[1];
                       ?>
                     </h5>
                     <h6 class="card-subtitle mb-2 text-muted">
                         <?          
-                          echo $info_explodido[1];
+                          echo $info_explodido[2];
                         ?>
                     </h6>
                     <p class="card-text">
                       <? 
-                        echo $info_explodido[2];   
+                        echo $info_explodido[3];   
                       ?>
                     </p>
 
                   </div>
                 </div>
-              <? } ?>
+              <? } } ?>
               <div class="row mt-5">
                 <div class="col-6">
                   <a class="btn btn-lg btn-warning btn-block" href="home.php">Voltar</a>

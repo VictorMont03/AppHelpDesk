@@ -1,5 +1,6 @@
 <?
   require('validador_de_acesso.php');
+  //print_r($_SESSION);
 ?>
 
 
