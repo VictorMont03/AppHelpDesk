@@ -7,7 +7,7 @@
 
     $text = $_SESSION['id'] . '#' . implode('#', $_POST) . PHP_EOL;
 
-    $arq = fopen('arquivo.hd', 'a');
+    $arq = fopen('../../app_help_desk/arquivo.hd', 'a');
     
     fwrite($arq, $text);
 

@@ -1,4 +1,7 @@
 <?php
+    /*
+    require('../../app_help_desk/valida_login.php'); //esconder do diretorio publico
+    */
     session_start();
 
     $adm_profile = [1 => 'administrativo', 0 => 'ususario'];

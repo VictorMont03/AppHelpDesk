@@ -3,7 +3,7 @@
 ?>
 
 <?php
-  $arq = fopen('arquivo.hd', 'r');
+  $arq = fopen('arquivo.hd', 'r');//segurança -> '../../app_help_desk/valida_login.php'
   $infos = [];
   $i = 0;
   while(!feof($arq)){
@@ -11,10 +11,7 @@
     $infos[$i] = fgets($arq);//pegar o que tem na linha
     $i++;
   }
-  /*echo '<pre>';
-  print_r($infos);
-  echo '</pre>';*/
-
+  
   fclose($arq);
 ?>
 
@@ -58,6 +55,7 @@
             </div>
             
             <div class="card-body">
+            <!-- Verificação de consultas que devem ser disponibilizadas-->
               <? foreach($infos as $info){
                   $info_explodido = explode("#", $info);
                   if(count($info_explodido) < 3){ //falta de informações -> ignora este indice
